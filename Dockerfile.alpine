@@ -1,0 +1,7 @@
+FROM docker.io/node:lts-alpine
+
+RUN \
+	apk add --no-cache \
+	sudo git curl wget openssl ca-certificates openssh bash
+
+ENTRYPOINT ["/bin/bash"]

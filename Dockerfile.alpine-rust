@@ -1,0 +1,7 @@
+FROM ci-images:alpine
+
+RUN \
+	apk add --no-cache rustup
+
+RUN \
+	rustup-init -y && mv /root/.cargo/bin/* /usr/local/bin

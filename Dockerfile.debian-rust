@@ -1,0 +1,6 @@
+FROM ci-images:debian
+
+RUN \
+	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path && \
+	mv /root/.cargo/bin/* /usr/local/bin
+	
