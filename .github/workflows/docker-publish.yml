@@ -35,13 +35,11 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build and push Docker image
-        if: github.event_name == 'pull_request'
-        run: make build-all
-        env:
-          DOCKER_REGISTRY: ghcr.io/${{ github.repository }}
-          
-      - name: Build and push Docker image
-        if: github.event_name != 'pull_request'
-        run: make publish-all
+        run: |
+          if [ "${{ github.event_name }}" == "pull_request" ]; then
+            make build-all
+          else
+            make publish-all
+          fi
         env:
           DOCKER_REGISTRY: ghcr.io/${{ github.repository }}
