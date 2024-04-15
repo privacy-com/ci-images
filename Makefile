@@ -1,5 +1,5 @@
 
-DOCKER_REGISTRY := ghcr.io/privacy-com/ci-images
+DOCKER_REGISTRY ?= ghcr.io/privacy-com/ci-images
 
 DOCKERFILES := $(wildcard Dockerfile.*)
 
@@ -9,6 +9,6 @@ publish-all: $(patsubst Dockerfile.%,docker-push-%,$(notdir $(DOCKERFILES)))
 docker-build-%: Dockerfile.%
 	docker build . -f Dockerfile.$* -t $(DOCKER_REGISTRY):$*
 
-docker-push-%:
+docker-push-%: docker-build-%
 	docker push $(DOCKER_REGISTRY):$*
 
