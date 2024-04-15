@@ -1,4 +1,4 @@
-FROM ci-images:alpine
+FROM ghcr.io/privacy-com/ci-images:alpine
 
 RUN \
 	apk add --no-cache rustup
