@@ -2,6 +2,6 @@ FROM docker.io/node:lts-alpine
 
 RUN \
 	apk add --no-cache \
-	sudo git curl wget openssl ca-certificates openssh bash docker docker-cli-compose
+	sudo git curl wget openssl ca-certificates openssh bash docker docker-cli-compose make
 
 ENTRYPOINT ["/bin/bash"]

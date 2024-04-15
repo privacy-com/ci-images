@@ -2,7 +2,7 @@ FROM docker.io/node:lts-bookworm
 
 RUN \
 	apt-get update && \
-	apt-get install -y sudo git curl wget openssl ca-certificates openssh-client bash
+	apt-get install -y sudo git curl wget openssl ca-certificates openssh-client bash make
 
 RUN \
 	curl -fsSL https://get.docker.com | sh
