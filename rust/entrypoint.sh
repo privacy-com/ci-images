@@ -26,4 +26,4 @@ else
 	echo "No SHIPYARD_TOKEN provided, skipping cargo config setup" >> /dev/stderr
 fi
 
-exec "/bin/bash"
+exec "$@"
